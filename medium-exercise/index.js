@@ -45,47 +45,75 @@ const rl = readline.createInterface({
 // });
 
 // Soal 8
-let numbers = [];
+// let numbers = [];
 
-function inputNumber(index) {
-  rl.question(`Masukkan angka ${index}: `, (input) => {
-    const angka = Number(input);
+// function inputNumber(index) {
+//   rl.question(`Masukkan angka ${index}: `, (input) => {
+//     const angka = Number(input);
 
-    numbers.push(angka);
+//     numbers.push(angka);
 
-    if (index < 5) {
-      inputNumber(index + 1);
-    } else {
-      //   console.log(numbers);
-      processData();
-    }
+//     if (index < 5) {
+//       inputNumber(index + 1);
+//     } else {
+//       //   console.log(numbers);
+//       processData();
+//     }
+//   });
+// }
+
+// function processData() {
+//   let total = 0;
+//   let terbesar = numbers[0];
+//   let terkecil = numbers[0];
+
+//   for (const number of numbers) {
+//     total += number;
+//     if (number > terbesar) {
+//       terbesar = number;
+//     }
+//     if (number < terkecil) {
+//       terkecil = number;
+//     }
+//   }
+
+//   const rataRata = total / numbers.length;
+//   console.log("\n=== HASIL ===");
+//   console.log(`Data: ${numbers}`);
+//   console.log(`Nilai terbesar: ${terbesar}`);
+//   console.log(`Nilai terkecil: ${terkecil}`);
+//   console.log(`Total: ${total}`);
+//   console.log(`Rata-rata: ${rataRata}`);
+
+//   rl.close();
+// }
+
+// inputNumber(1);
+
+// Soal 9
+
+rl.question("Masukkan nama: ", (nama) => {
+  rl.question("Masukkan umur: ", (umur) => {
+    rl.question("Masukkan nilai: ", (nilai) => {
+      let siswa = {
+        nama: nama,
+        umur: Number(umur),
+        nilai: Number(nilai),
+      };
+
+      if (siswa.nilai >= 75) {
+        siswa.status = "Lulus";
+      } else {
+        siswa.status = "Tidak Lulus";
+      }
+
+      console.log("=== DATA SISWA ===");
+      console.log(`Nama: ${siswa.nama}`);
+      console.log(`Umur: ${siswa.umur}`);
+      console.log(`Nilai: ${siswa.nilai}`);
+      console.log(`Status: ${siswa.status}`);
+
+      rl.close();
+    });
   });
-}
-
-function processData() {
-  let total = 0;
-  let terbesar = numbers[0];
-  let terkecil = numbers[0];
-
-  for (const number of numbers) {
-    total += number;
-    if (number > terbesar) {
-      terbesar = number;
-    }
-    if (number < terkecil) {
-      terkecil = number;
-    }
-  }
-
-  const rataRata = total / numbers.length;
-  console.log("\n=== HASIL ===");
-  console.log(`Data: ${numbers}`);
-  console.log(`Nilai terbesar: ${terbesar}`);
-  console.log(`Nilai terkecil: ${terkecil}`);
-  console.log(`Total: ${total}`);
-  console.log(`Rata-rata: ${rataRata}`);
-
-  rl.close();
-}
-
-inputNumber(1);
+});
