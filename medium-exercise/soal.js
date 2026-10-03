@@ -29,10 +29,10 @@
 // Angka 1 - 10:
 // 1 2 3 4 5 6 7 8 9 10
 //
-// Total: 55
-//
 // Bilangan genap:
 // 2 4 6 8 10
+//
+// Total: 30
 
 // SOAL 8 — Array dan Nilai Tertinggi
 
