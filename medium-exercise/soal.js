@@ -94,20 +94,20 @@
 
 // Buat program sederhana untuk mengelola data produk
 // menggunakan array of objects.
-//
+
 // Setiap produk memiliki:
 // - id
 // - nama
 // - harga
-//
+
 // Buat menu:
-//
+
 // 1. Tambah Produk
 // 2. Lihat Semua Produk
 // 3. Update Produk
 // 4. Hapus Produk
 // 5. Keluar
-//
+
 // Gunakan:
 // - readline untuk input
 // - function
@@ -116,47 +116,47 @@
 // - array
 // - object
 // - array of objects
-//
+
 // CREATE:
 // User memasukkan nama dan harga produk,
 // kemudian data disimpan ke dalam array.
-//
+
 // READ:
 // Tampilkan seluruh produk yang tersimpan.
-//
+
 // UPDATE:
 // User memasukkan ID produk,
 // kemudian dapat mengubah nama dan harga produk.
-//
+
 // DELETE:
 // User memasukkan ID produk,
 // kemudian produk tersebut dihapus dari array.
-//
+
 // Contoh Input:
-//
+
 // === PRODUCT MANAGEMENT ===
 // 1. Tambah Produk
 // 2. Lihat Semua Produk
 // 3. Update Produk
 // 4. Hapus Produk
 // 5. Keluar
-//
+
 // Pilih menu: 1
-//
+
 // Masukkan nama produk: Keyboard
 // Masukkan harga: 500000
-//
+
 // Contoh Hasil:
 // Produk berhasil ditambahkan!
-//
+
 // === PRODUCT MANAGEMENT ===
 // 1. Tambah Produk
 // 2. Lihat Semua Produk
 // 3. Update Produk
 // 4. Hapus Produk
 // 5. Keluar
-//
+
 // Pilih menu: 2
-//
+
 // === DAFTAR PRODUK ===
 // ID: 1 | Nama: Keyboard | Harga: Rp500000

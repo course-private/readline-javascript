@@ -92,28 +92,151 @@ const rl = readline.createInterface({
 
 // Soal 9
 
-rl.question("Masukkan nama: ", (nama) => {
-  rl.question("Masukkan umur: ", (umur) => {
-    rl.question("Masukkan nilai: ", (nilai) => {
-      let siswa = {
+// rl.question("Masukkan nama: ", (nama) => {
+//   rl.question("Masukkan umur: ", (umur) => {
+//     rl.question("Masukkan nilai: ", (nilai) => {
+//       let siswa = {
+//         nama: nama,
+//         umur: Number(umur),
+//         nilai: Number(nilai),
+//       };
+
+//       if (siswa.nilai >= 75) {
+//         siswa.status = "Lulus";
+//       } else {
+//         siswa.status = "Tidak Lulus";
+//       }
+
+//       console.log("=== DATA SISWA ===");
+//       console.log(`Nama: ${siswa.nama}`);
+//       console.log(`Umur: ${siswa.umur}`);
+//       console.log(`Nilai: ${siswa.nilai}`);
+//       console.log(`Status: ${siswa.status}`);
+
+//       rl.close();
+//     });
+//   });
+// });
+
+// Soal 10
+
+let products = [];
+
+// CREATE
+function createProduct() {
+  rl.question("Masukkan nama produk: ", (nama) => {
+    rl.question("Masukkan harga: ", (harga) => {
+      const product = {
+        id: products.length + 1,
         nama: nama,
-        umur: Number(umur),
-        nilai: Number(nilai),
+        harga: Number(harga),
       };
 
-      if (siswa.nilai >= 75) {
-        siswa.status = "Lulus";
-      } else {
-        siswa.status = "Tidak Lulus";
-      }
+      products.push(product);
 
-      console.log("=== DATA SISWA ===");
-      console.log(`Nama: ${siswa.nama}`);
-      console.log(`Umur: ${siswa.umur}`);
-      console.log(`Nilai: ${siswa.nilai}`);
-      console.log(`Status: ${siswa.status}`);
+      console.log("\nProduk berhasil ditambahkan!\n");
 
-      rl.close();
+      showMenu();
     });
   });
-});
+}
+
+// READ
+function readProducts() {
+  console.log("\n=== DAFTAR PRODUK ===");
+
+  if (products.length === 0) {
+    console.log("Belum ada produk.");
+  } else {
+    products.forEach((product) => {
+      console.log(
+        `ID: ${product.id} | Nama: ${product.nama} | Harga: Rp${product.harga}`,
+      );
+    });
+  }
+
+  console.log();
+
+  showMenu();
+}
+
+// DELETE
+function deleteProduct() {
+  rl.question("Masukkan ID produk: ", (id) => {
+    const index = products.findIndex((product) => product.id === Number(id));
+
+    if (index === -1) {
+      console.log("\nProduk tidak ditemukan!\n");
+      return showMenu();
+    }
+
+    products.splice(index, 1);
+    console.log("\nProduk berhasil dihapus!\n");
+    showMenu();
+  });
+}
+
+// UPDATE
+function updateProduct() {
+  rl.question("Masukkan ID produk: ", (id) => {
+    const product = products.find((product) => product.id === Number(id));
+
+    if (!product) {
+      console.log("\nProduk tidak ditemukan!\n");
+      return showMenu();
+    }
+
+    rl.question("Masukkan nama baru: ", (nama) => {
+      rl.question("Masukkan harga baru: ", (harga) => {
+        product.nama = nama;
+        product.harga = Number(harga);
+
+        console.log("\nProduk berhasil diupdate!\n");
+
+        showMenu();
+      });
+    });
+  });
+}
+
+// MENU
+function showMenu() {
+  console.log("=== PRODUCT MANAGEMENT ===");
+  console.log("1. Tambah Produk");
+  console.log("2. Lihat Semua Produk");
+  console.log("3. Update Produk");
+  console.log("4. Hapus Produk");
+  console.log("5. Keluar");
+
+  rl.question("\nPilih menu: ", (choice) => {
+    switch (choice) {
+      case "1":
+        createProduct();
+        break;
+
+      case "2":
+        readProducts();
+        break;
+
+      case "3":
+        updateProduct();
+        break;
+
+      case "4":
+        deleteProduct();
+        break;
+
+      case "5":
+        console.log("\nProgram selesai.");
+        rl.close();
+        break;
+
+      default:
+        console.log("\nMenu tidak tersedia.\n");
+        showMenu();
+    }
+  });
+}
+
+// START PROGRAM
+showMenu();
